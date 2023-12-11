@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,14 @@ public class EnemyChase : MonoBehaviour
     public float stoppingDistance;
     public float chaseRange = 10f;
     private bool isChasing = false;
+
+    public float shootingRange = 5f;
+    public float shootingCooldown = 1f;
+    private float lastShotTime;
+    public float bulletSpeed;
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
 
     void Start()
     {
@@ -42,6 +51,16 @@ public class EnemyChase : MonoBehaviour
 
     void Update()
     {
+        if (IsPlayerInRange(shootingRange))
+        {
+            // Check if enough time has passed since the last shot
+            if (Time.time - lastShotTime > shootingCooldown)
+            {
+                // Start shooting
+                Shoot();
+                lastShotTime = Time.time;
+            }
+        }
         if (isChasing)
         {
             Debug.Log("Chasing");
@@ -54,6 +73,15 @@ public class EnemyChase : MonoBehaviour
         }
     }
 
+    private void Shoot()
+    {
+        // Instantiate a bullet prefab at the firePoint position and rotation
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+        bulletRb.velocity = firePoint.forward * bulletSpeed; // Adjust bulletSpeed for the desired velocity
+
+        Destroy(bullet, 2f);
+    }
     public void ChasePlayer()
     {
         if (player != null)

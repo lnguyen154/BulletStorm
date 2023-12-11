@@ -30,7 +30,7 @@ public class TriggerCheck : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            // Implement code to make the enemy chase the player
+            
             enemy.GetComponent<EnemyChase>().ChasePlayer();
         }
     }

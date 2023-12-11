@@ -2384,7 +2384,7 @@ PrefabInstance:
     - target: {fileID: 5218362965399535504, guid: 47b3036c3aaf4d44ab15b269672dd0d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.436275
+      value: 6.52
       objectReference: {fileID: 0}
     - target: {fileID: 5218362965399535504, guid: 47b3036c3aaf4d44ab15b269672dd0d9,
         type: 3}
@@ -2394,7 +2394,7 @@ PrefabInstance:
     - target: {fileID: 5218362965399535504, guid: 47b3036c3aaf4d44ab15b269672dd0d9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.2538195
+      value: -7.3
       objectReference: {fileID: 0}
     - target: {fileID: 5218362965399535504, guid: 47b3036c3aaf4d44ab15b269672dd0d9,
         type: 3}
@@ -3294,7 +3294,13 @@ MonoBehaviour:
   - {fileID: 1750894924}
   player: {fileID: 1526539621}
   stoppingDistance: 2
-  chaseRange: 15
+  chaseRange: 20
+  shootingRange: 5
+  shootingCooldown: 1
+  bulletSpeed: 100
+  bulletPrefab: {fileID: 5064751780668759263, guid: e18955a603af8a745bbf62084ffa8733,
+    type: 3}
+  firePoint: {fileID: 79774738}
 --- !u!1001 &1208616712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3878,6 +3884,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900756642e1260547b347c2a4ccab355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 50
+  gameManager: {fileID: 0}
+--- !u!114 &1526539634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433579789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b60ef872818a2544a8d1ab086270ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1195770542}
+  - {fileID: 1788262232}
 --- !u!1001 &1540271792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4952,6 +4975,12 @@ MonoBehaviour:
   player: {fileID: 1526539621}
   stoppingDistance: 2
   chaseRange: 15
+  shootingRange: 10
+  shootingCooldown: 1
+  bulletSpeed: 100
+  bulletPrefab: {fileID: 5064751780668759263, guid: e18955a603af8a745bbf62084ffa8733,
+    type: 3}
+  firePoint: {fileID: 1715758514}
 --- !u!195 &1788262236
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5090,7 +5119,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1796977359}
   - component: {fileID: 1796977358}
-  - component: {fileID: 1796977360}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Trigger
@@ -5128,27 +5156,12 @@ Transform:
   m_GameObject: {fileID: 1796977356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.67, y: 2.9409342, z: -0.28}
+  m_LocalPosition: {x: 1.67, y: 1.63, z: 0.67}
   m_LocalScale: {x: 20, y: 2, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1796977360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1796977356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b60ef872818a2544a8d1ab086270ffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 1195770542}
-  - {fileID: 1788262232}
 --- !u!1001 &1807613124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6538,6 +6551,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1526539628}
+    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1526539634}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
