@@ -11,11 +11,12 @@ public class AmmoPickup : MonoBehaviour
         {
             // Access the GunScript on the player or wherever the gun script is attached
             GunScript gunScript = other.GetComponentInChildren<GunScript>();
+            Debug.Log("Works");
 
             if (gunScript != null)
             {
                 // Add bullets to the gun
-                gunScript.AddBullets(bulletsToAdd);
+                gunScript.AddBullets(bulletsToAdd);;
 
                 // Destroy the ammo object after picking it up
                 Destroy(gameObject);

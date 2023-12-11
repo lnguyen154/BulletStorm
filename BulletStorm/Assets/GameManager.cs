@@ -5,12 +5,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public TMP_Text killText;
-    public TMP_Text collectionText;
-    public Text winText;
 
     private int killCount = 0;
-    private int totalGems = 6;
-    private int gemsCollected = 0;
 
     void Start()
     {
@@ -24,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateKillText()
     {
-        killText.text = "Kills: " + killCount.ToString();
+        killText.text = "KILLS: " + killCount.ToString();
     }
 
     public void EnemyKilled()
@@ -32,27 +28,5 @@ public class GameManager : MonoBehaviour
         killCount++;
         Debug.Log(killCount.ToString());
         UpdateKillText();
-    }
-
-    public void GemCollected()
-    {
-        gemsCollected++;
-        UpdateCollectionText();
-
-        if (gemsCollected >= totalGems)
-        {
-            if (winText != null)
-            {
-                winText.text = "You Win!";
-                winText.enabled = true;
-            }
-        }
-    }
-    void UpdateCollectionText()
-    {
-        if (collectionText != null)
-        {
-            collectionText.text = "Gems: " + gemsCollected;
-        }
     }
 }

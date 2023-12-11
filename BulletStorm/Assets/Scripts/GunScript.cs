@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class GunScript : MonoBehaviour
 {
@@ -17,9 +18,12 @@ public class GunScript : MonoBehaviour
 
     public Camera fpsCam;
 
+    //public TMP_Text bullets;
+
     private void Start()
     {
         currentBullet = maxBullets; // Initialze the current bullets 
+
     }
 
     // Update is called once per frame
@@ -43,13 +47,12 @@ public class GunScript : MonoBehaviour
             muzzleFlash.Play();
         }
         currentBullet--;
-        Debug.Log(currentBullet.ToString());
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
             EnemyDamage target= hit.transform.GetComponent<EnemyDamage>();
-
+            Debug.Log($"Hit Object: {hit.transform.name}");
             if (target != null) 
             {
                 target.TakeDamage(damage);
