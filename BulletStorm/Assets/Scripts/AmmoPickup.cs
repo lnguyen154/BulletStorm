@@ -9,7 +9,6 @@ public class AmmoPickup : MonoBehaviour
         // Check if the player has collided with the ammo object
         if (other.CompareTag("Player"))
         {
-            Debug.Log("tOUCJ");
             // Access the GunScript on the player or wherever the gun script is attached
             GunScript gunScript = other.GetComponentInChildren<GunScript>();
 

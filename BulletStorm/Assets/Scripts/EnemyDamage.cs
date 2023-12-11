@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     public float health = 50f;
+    public GameManager gameManager;
 
     public void TakeDamage (float damage)
     {
@@ -18,6 +19,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void Die()
     {
+        gameManager.EnemyKilled();
         Destroy(gameObject);
     }
 }

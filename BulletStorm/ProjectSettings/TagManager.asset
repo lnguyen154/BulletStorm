@@ -7,6 +7,10 @@ TagManager:
   - CinemachineTarget
   - Enemy
   - Ammo
+  - FxTemporaire
+  - Trigger
+  - Weapon
+  - House
   layers:
   - Default
   - TransparentFX
